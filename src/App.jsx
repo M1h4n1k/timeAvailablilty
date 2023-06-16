@@ -522,6 +522,9 @@ function App() {
         >
             <div className="w-full flex justify-between ">
                 <h2 className="text-2xl dark:text-white">My availability for the next 7 days</h2>
+                <div className="w-24 h-10 rounded-full sm:bg-red-600 md:bg-orange-400 lg:bg-green-500 xl:bg-blue-600 2xl:bg-fuchsia-500">
+
+                </div>
                 <ToggledDarkModeButton/>
             </div>
 
