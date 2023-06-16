@@ -28,8 +28,8 @@ function PopupWindow({hour, activity, closePopup, changeActivity}) {
 function ActivityTextBox({hour, openEditActivityPopup, activity, isBetween}){
     return (
         <span className={
-                "absolute -top-[2.2vw] border-2 rounded-xl h-[1.6vw] w-[12vw] flex items-center justify-center z-10 dark:text-white " +
-                "text-base " +
+                "absolute -top-[2.3vw] border-2 rounded-xl h-[1.7vw] w-[12vw] flex items-center justify-center z-10 dark:text-white " +
+                "text-[1vw] " +
                 (isBetween(hour) === 2 ? 'translate-x-[1.5vw] ' : '')
             }
             onMouseDown={(e) => openEditActivityPopup(e, hour)}
@@ -77,7 +77,7 @@ function HourBlock({freeTime, hour, activity, openEditActivityPopup, timePress, 
         <div
             className={
                 "first:rounded-l-[100%] last:rounded-r-[100%] w-[3vw] h-[3vw] relative dark:text-white " +
-                "flex items-center justify-center text-sm select-none cursor-pointer " +
+                "flex items-center justify-center select-none cursor-pointer text-[0.9vw] " +
                 (freeTime.some((el) => el.start === hour) ? '!bg-green-300 dark:!bg-emerald-400 !rounded-l-full ' : '') +
                 (freeTime.some((el) => el.end === hour) ? '!bg-green-300 dark:!bg-emerald-400 !rounded-r-full ' : '') +
                 (freeTime.some((el) => el.start < hour && hour < el.end) ? '!bg-green-100 dark:!bg-emerald-200 ' : 'bg-neutral-200 dark:bg-gray-300 ') +
@@ -108,7 +108,7 @@ function HourBlock({freeTime, hour, activity, openEditActivityPopup, timePress, 
 function AddButton({addNewRange}) {
     return (
         <div onClick={addNewRange} className="text-5xl font-bold cursor-pointer active:scale-75 transition-all w-[1.5vw] h-[1.5vw]">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 122.875 122.648" className="dark:fill-white">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5vw" viewBox="0 0 122.875 122.648" className="dark:fill-white">
                 <path d="M108.993,47.079c7.683-0.059,13.898,6.12,13.882,13.805 c-0.018,7.683-6.26,13.959-13.942,14.019L75.24,75.138l-0.235,33.73c-0.063,7.619-6.338,13.789-14.014,13.78 c-7.678-0.01-13.848-6.197-13.785-13.818l0.233-33.497l-33.558,0.235C6.2,75.628-0.016,69.448,0,61.764 c0.018-7.683,6.261-13.959,13.943-14.018l33.692-0.236l0.236-33.73C47.935,6.161,54.209-0.009,61.885,0 c7.678,0.009,13.848,6.197,13.784,13.818l-0.233,33.497L108.993,47.079L108.993,47.079z"/>
             </svg>
         </div>
@@ -118,7 +118,7 @@ function AddButton({addNewRange}) {
 function DeleteButton({deleteRange}) {
     return (
         <div onClick={deleteRange} className="text-5xl font-bold cursor-pointer active:scale-75 transition-all w-[1.5vw] h-[1.5vw]">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 122.875 28.489" className="dark:fill-white">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5vw" viewBox="0 0 122.875 28.489" className="dark:fill-white">
                 <path d="M108.993,0c7.683-0.059,13.898,6.12,13.882,13.805 c-0.018,7.682-6.26,13.958-13.942,14.018c-31.683,0.222-63.368,0.444-95.051,0.666C6.2,28.549-0.016,22.369,0,14.685 C0.018,7.002,6.261,0.726,13.943,0.667C45.626,0.445,77.311,0.223,108.993,0L108.993,0z"/>
             </svg>
         </div>
@@ -517,13 +517,12 @@ function App() {
 
     return (
         <div
-            className="px-12 space-y-14 h-full w-full dark:text-white"
+            className="px-12 space-y-[2.7vw] h-full w-full dark:text-white"
             onMouseUp={() => setPressedFreeSliderEdge(false)}
         >
-            <div className="w-full flex justify-between ">
+            <div className="w-full flex justify-between">
                 <h2 className="text-2xl dark:text-white">My availability for the next 7 days</h2>
-                <div className="w-24 h-10 rounded-full bg-black sm:bg-red-600 md:bg-orange-400 lg:bg-green-500 xl:bg-blue-600 2xl:bg-fuchsia-500">
-                </div>
+                {/*<div className="w-24 h-10 rounded-full bg-black sm:bg-red-600 md:bg-orange-400 lg:bg-green-500 xl:bg-blue-600 2xl:bg-fuchsia-500"></div>*/}
                 <ToggledDarkModeButton/>
             </div>
 
