@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function PopupWindow({hour, activity, closePopup, changeActivity}) {
     return (
-        <div id="popup" className="z-20 h-full w-full !m-0 !p-0 absolute top-0 left-0" style={{ background: 'rgba(0, 0, 0, .5)' }}
+        <div id="popup" className="z-20 h-full w-full !m-0 !p-0 absolute top-0 left-0 text-black" style={{ background: 'rgba(0, 0, 0, .5)' }}
              onClick={closePopup}>
             <label onClick={(e) => e.stopPropagation()}
                    className="absolute top-1/2 left-1/2 bg-gray-100 rounded-xl h-64 w-96 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center p-6 space-y-2">
@@ -28,8 +28,9 @@ function PopupWindow({hour, activity, closePopup, changeActivity}) {
 function ActivityTextBox({hour, openEditActivityPopup, activity, isBetween}){
     return (
         <span className={
-                "absolute -top-11 border-2 rounded-xl h-8 w-44 flex items-center justify-center z-10 dark:text-white " +
-                (isBetween(hour) === 2 ? 'translate-x-7 ' : '')
+                "absolute -top-7 md:-top-9 lg:-top-11 border-2 rounded-xl h-6 md:h-7 lg:h-8 w-24 md:w-36 lg:w-44 flex items-center justify-center z-10 dark:text-white " +
+                "text-xs md:text-sm lg:text-base" +
+                (isBetween(hour) === 2 ? 'translate-x-4 md:translate-x-6 lg:translate-7' : '')
             }
             onMouseDown={(e) => openEditActivityPopup(e, hour)}
         >{
@@ -75,7 +76,7 @@ function HourBlock({freeTime, hour, activity, openEditActivityPopup, timePress, 
     return (
         <div
             className={
-                "first:rounded-l-[100%] last:rounded-r-[100%] w-14 h-14 relative dark:text-white " +
+                "first:rounded-l-[100%] last:rounded-r-[100%] w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 relative dark:text-white " +
                 "flex items-center justify-center text-sm select-none cursor-pointer " +
                 (freeTime.some((el) => el.start === hour) ? '!bg-green-300 dark:!bg-emerald-400 !rounded-l-full ' : '') +
                 (freeTime.some((el) => el.end === hour) ? '!bg-green-300 dark:!bg-emerald-400 !rounded-r-full ' : '') +
@@ -106,7 +107,7 @@ function HourBlock({freeTime, hour, activity, openEditActivityPopup, timePress, 
 
 function AddButton({addNewRange}) {
     return (
-        <div onClick={addNewRange} className="text-5xl font-bold cursor-pointer active:scale-75 transition-all h-7 w-7">
+        <div onClick={addNewRange} className="text-5xl font-bold cursor-pointer active:scale-75 transition-all w-4 h-4 md:w-6 md:h-6 lg:w-7 lg:h-7">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 122.875 122.648" className="dark:fill-white">
                 <path d="M108.993,47.079c7.683-0.059,13.898,6.12,13.882,13.805 c-0.018,7.683-6.26,13.959-13.942,14.019L75.24,75.138l-0.235,33.73c-0.063,7.619-6.338,13.789-14.014,13.78 c-7.678-0.01-13.848-6.197-13.785-13.818l0.233-33.497l-33.558,0.235C6.2,75.628-0.016,69.448,0,61.764 c0.018-7.683,6.261-13.959,13.943-14.018l33.692-0.236l0.236-33.73C47.935,6.161,54.209-0.009,61.885,0 c7.678,0.009,13.848,6.197,13.784,13.818l-0.233,33.497L108.993,47.079L108.993,47.079z"/>
             </svg>
@@ -116,7 +117,7 @@ function AddButton({addNewRange}) {
 
 function DeleteButton({deleteRange}) {
     return (
-        <div onClick={deleteRange} className="text-5xl font-bold cursor-pointer active:scale-75 transition-all h-7 w-7 ">
+        <div onClick={deleteRange} className="text-5xl font-bold cursor-pointer active:scale-75 transition-all w-4 h-4 md:w-6 md:h-6 lg:w-7 lg:h-7">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 122.875 28.489" className="dark:fill-white">
                 <path d="M108.993,0c7.683-0.059,13.898,6.12,13.882,13.805 c-0.018,7.682-6.26,13.958-13.942,14.018c-31.683,0.222-63.368,0.444-95.051,0.666C6.2,28.549-0.016,22.369,0,14.685 C0.018,7.002,6.261,0.726,13.943,0.667C45.626,0.445,77.311,0.223,108.993,0L108.993,0z"/>
             </svg>
