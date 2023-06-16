@@ -29,7 +29,7 @@ function ActivityTextBox({hour, openEditActivityPopup, activity, isBetween}){
     return (
         <span className={
                 "absolute -top-[2.3vw] border-2 rounded-xl h-[1.7vw] w-[12vw] flex items-center justify-center z-10 dark:text-white " +
-                "text-[1vw] " +
+                "text-[0.8vw] " +
                 (isBetween(hour) === 2 ? 'translate-x-[1.5vw] ' : '')
             }
             onMouseDown={(e) => openEditActivityPopup(e, hour)}
@@ -77,7 +77,7 @@ function HourBlock({freeTime, hour, activity, openEditActivityPopup, timePress, 
         <div
             className={
                 "first:rounded-l-[100%] last:rounded-r-[100%] w-[3vw] h-[3vw] relative dark:text-white " +
-                "flex items-center justify-center select-none cursor-pointer text-[0.9vw] " +
+                "flex items-center justify-center select-none cursor-pointer text-[0.8vw] " +
                 (freeTime.some((el) => el.start === hour) ? '!bg-green-300 dark:!bg-emerald-400 !rounded-l-full ' : '') +
                 (freeTime.some((el) => el.end === hour) ? '!bg-green-300 dark:!bg-emerald-400 !rounded-r-full ' : '') +
                 (freeTime.some((el) => el.start < hour && hour < el.end) ? '!bg-green-100 dark:!bg-emerald-200 ' : 'bg-neutral-200 dark:bg-gray-300 ') +
